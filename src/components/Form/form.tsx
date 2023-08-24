@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { validation } from '../validation/password';
 import { Display } from '../Display/display';
 
