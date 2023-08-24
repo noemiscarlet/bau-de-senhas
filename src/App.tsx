@@ -16,12 +16,12 @@ function App() {
 
   return (
     <div>
+      <Header />
       {!mostrarFormulario ? (
         <Button onClick={ handleClickButton } />
       ) : (
         <Form onCancel={ handleCancel } />
       )}
-      <Header />
     </div>
   );
 }
