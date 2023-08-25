@@ -5,7 +5,7 @@ import { Form } from './components/Form/form';
 import { Button } from './components/RegisterButton/Button';
 import { Card } from './components/Card/card';
 
-type Card = {
+type CardType = {
   nameServ: string;
   login: string;
   password: string;
@@ -14,7 +14,7 @@ type Card = {
 
 function App() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
-  const [cards, setCards] = useState<Card[]>([]);
+  const [cards, setCards] = useState<CardType[]>([]);
 
   const handleClickButton = () => {
     setMostrarFormulario(true);
@@ -23,7 +23,7 @@ function App() {
     setMostrarFormulario(false);
   };
 
-  const pushCard = (obj: Card) => {
+  const pushCard = (obj: CardType) => {
     setCards((prevCards) => [...prevCards, obj]);
     setMostrarFormulario(false);
   };
