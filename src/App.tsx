@@ -38,7 +38,7 @@ function App() {
       )}
       {
       cards.length === 0 ? (
-        <h1>Nenhum cartão disponível.</h1>
+        <h2>Nenhum cartão disponível.</h2>
       ) : (
         cards.map((card, key) => (
           <Card
