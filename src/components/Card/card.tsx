@@ -4,8 +4,18 @@ type CardType = {
   password: string;
   url: string;
 };
+type DeleteCardType = (obj: CardType) => void;
 
-export function Card({ obj }: { obj: CardType }) {
+type CardProps = {
+  obj: CardType;
+  deleteCard: DeleteCardType;
+};
+
+export function Card({ obj, deleteCard }: CardProps) {
+  const handleDeleteClick = () => {
+    deleteCard(obj);
+  };
+
   return (
     <div>
       <h2>
@@ -19,6 +29,12 @@ export function Card({ obj }: { obj: CardType }) {
       <p>
         {obj.password}
       </p>
+      <button
+        onClick={ handleDeleteClick }
+        data-testid="remove-btn"
+      >
+        Apagar
+      </button>
     </div>
   );
 }

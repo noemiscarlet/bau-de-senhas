@@ -27,6 +27,11 @@ function App() {
     setCards((prevCards) => [...prevCards, obj]);
     setMostrarFormulario(false);
   };
+  const deleteCard = (obj: CardType) => {
+    const deleteCardList = cards
+      .filter(({ nameServ }) => obj.nameServ !== nameServ);
+    setCards(deleteCardList);
+  };
 
   return (
     <div>
@@ -42,6 +47,7 @@ function App() {
       ) : (
         cards.map((card, key) => (
           <Card
+            deleteCard={ deleteCard }
             obj={ card }
             key={ key }
           />
