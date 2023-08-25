@@ -4,6 +4,7 @@ import { Header } from './components/header/header';
 import { Form } from './components/Form/form';
 import { Button } from './components/RegisterButton/Button';
 import { Card } from './components/Card/card';
+import { Toggle } from './components/toggle/Toggle';
 
 type CardType = {
   nameServ: string;
@@ -14,6 +15,7 @@ type CardType = {
 
 function App() {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [toggle, setToggle] = useState(false);
   const [cards, setCards] = useState<CardType[]>([]);
 
   const handleClickButton = () => {
@@ -33,6 +35,10 @@ function App() {
     setCards(deleteCardList);
   };
 
+  const handleToggle = () => {
+    setToggle(!toggle);
+  };
+
   return (
     <div>
       <Header />
@@ -41,12 +47,14 @@ function App() {
       ) : (
         <Form onCancel={ handleCancel } pushCard={ pushCard } />
       )}
+      <Toggle handleToggle={ handleToggle } />
       {
       cards.length === 0 ? (
         <h2>Nenhuma senha cadastrada</h2>
       ) : (
         cards.map((card, key) => (
           <Card
+            toggle={ toggle }
             deleteCard={ deleteCard }
             obj={ card }
             key={ key }

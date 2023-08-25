@@ -9,9 +9,10 @@ type DeleteCardType = (obj: CardType) => void;
 type CardProps = {
   obj: CardType;
   deleteCard: DeleteCardType;
+  toggle: boolean
 };
 
-export function Card({ obj, deleteCard }: CardProps) {
+export function Card({ obj, deleteCard, toggle }: CardProps) {
   const handleDeleteClick = () => {
     deleteCard(obj);
   };
@@ -27,7 +28,7 @@ export function Card({ obj, deleteCard }: CardProps) {
         {obj.login}
       </p>
       <p>
-        {obj.password}
+        { toggle ? '******' : obj.password }
       </p>
       <button
         onClick={ handleDeleteClick }
