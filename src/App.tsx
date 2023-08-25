@@ -38,7 +38,7 @@ function App() {
       )}
       {
       cards.length === 0 ? (
-        <h2>Nenhum cartão disponível.</h2>
+        <h2>Nenhuma senha cadastrada</h2>
       ) : (
         cards.map((card, key) => (
           <Card
